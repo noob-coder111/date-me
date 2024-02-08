@@ -1,3 +1,7 @@
+body {
+  background-color: pink;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,66 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  border: 2px solid rgb(250, 72, 101);
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: rgb(250, 72, 101);
+  width: 84px;
+  height: 60px;
+  text-align: center;
+}
+
+h2 {
+  color: rgb(244, 21, 58);
+  margin: 10px;
+  font-family: cursive;
+  text-align: center;
+}
+h1 {
+  color: rgb(244, 21, 58);
+  margin: 10px;
+  font-family: cursive;
+  text-align: center;
+}
+
+h3 {
+  color: rgb(87, 87, 219);
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+h3:hover {
+  color: rgb(23, 23, 229);
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+button:active {
+  color: red;
+  border: 2px solid red;
+}
+
+.venues {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.container {
+  text-align: center;
 }
