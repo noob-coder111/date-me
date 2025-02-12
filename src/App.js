@@ -6,57 +6,46 @@ import Venue from "./venue";
 function App() {
   const [yesLabel, setYesLabel] = useState("Yes");
   const [noLabel, setNoLabel] = useState("No");
-  const [active, setActive] = useState(false);
+  const [image, setImage] = useState("https://media1.tenor.com/m/n1D_257ONacAAAAC/yap-yapping.gif");
+  const [label, setLabel] = useState("Will you go on a date with me?");
+  const [gift, setGift] = useState("");
   const navigate = useNavigate();
-  const gifURL1 =
-    "https://media.tenor.com/0imRtuzqccIAAAAi/bubu-dudu-flower-gift.gif";
-  const gifURL2 = "https://media.tenor.com/3DR7cG_N_w0AAAAj/bubu-dudu-bubu.gif";
-  const handleNo = (e) => {
-    if (e === "No") {
-      setNoLabel(yesLabel);
-      setYesLabel(noLabel);
-    }
-    setActive(true);
+
+  const sadLabels = ["Why!?", "Please", "Think again"];
+  const sadImages = ["https://media1.tenor.com/m/M_HYbyotRHwAAAAd/sad.gif", "https://media1.tenor.com/m/qKFNYB3HB9YAAAAC/cat-tiktok.gif", "https://media.tenor.com/LlxPGK7ACcgAAAAi/sad-cat.gif"];
+
+  const handleYes = () => {
+    window.location.href = "/venue";
   };
+
+  const handleNo = () => {
+    setImage(sadImages[Math.floor(Math.random() * sadImages.length)]);
+    setLabel(sadLabels[Math.floor(Math.random() * sadLabels.length)]);
+    setNoLabel("No?🥺")
+  };
+
   return (
     <div className="container">
-      {active ? (
-        <img src={gifURL2} alt="Your GIF" />
-      ) : (
-        <img src={gifURL1} alt="Your GIF" />
-      )}
-      <h1>Will You be my Valentine??</h1>
+      <img src={image} alt="Your GIF" />
+      <h1>{label}</h1>
       <div className="buttons">
         <button
-          onClick={() => {
-            handleNo(yesLabel);
-          }}
+          onClick={handleYes}
         >
           {yesLabel}
         </button>
         <button
-          onClick={() => {
-            handleNo(noLabel);
-          }}
+          onClick={handleNo}
         >
           {noLabel}
         </button>
       </div>
-      {active && (
-        <div>
-          <h1>Thankyou for being my Valentine!</h1>
-          <h2>Where do you wanna go for our Date?</h2>
-          <h3
-            onClick={() => {
-              navigate("/venue");
-            }}
-          >
-            Please click here to fix our date
-          </h3>
-        </div>
-      )}
     </div>
   );
 }
 
 export default App;
+
+
+
+

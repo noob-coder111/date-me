@@ -1,58 +1,38 @@
 import React, { useState } from "react";
 
 const Venue = () => {
-  const [randomImage, setRandomImage] = useState(null);
-  const [disabled, setDisabled] = useState(false);
-  const images = [
-    "https://media.tenor.com/Srnj6pMFsPoAAAAM/angry-cute.gif",
-    "https://media.tenor.com/nqNmASdokgUAAAAM/good-morning.gif",
-    "https://media1.tenor.com/m/KCiwAge-inQAAAAC/efgg.gif",
-  ];
-  const handleButtonClick = (e) => {
-    console.log(e);
-    if (e === "3") {
-      const randomIndex = Math.floor(Math.random() * images.length);
-      const selectedImage = images[randomIndex];
-      setRandomImage(selectedImage);
-    } else if (e === "2") {
-      setRandomImage(
-        "https://media.tenor.com/Vxo4EHquZkIAAAAj/tkthao219-bubududu.gif"
-      );
-      setDisabled(true);
-    } else {
-      setRandomImage(
-        "https://media.tenor.com/8gJYQy7k_NUAAAAj/tkthao219-bubududu.gif"
-      );
-      setDisabled(true);
-    }
+  const [gift, setGift] = useState("");
+
+  const handleGiftSubmit = (e) => {
+    e.preventDefault();
+    window.location.href = `mailto:deepak9709065815@gmail.com?subject=Gift Request&body=I want: ${gift}`;
+    alert("Message sent!")
   };
+
   return (
     <>
-      {!disabled && (
-        <>
-          {" "}
-          <h2>Please choose a venue</h2>
-          <div className="venues">
-            <button onClick={() => handleButtonClick("1")}>
-              Art Exhibition
-            </button>
-            <button onClick={() => handleButtonClick("2")}>Club</button>
-            <button onClick={() => handleButtonClick("3")}>
-              Hehe...both
-              <br />
-              {randomImage && `(aye!)`}
-            </button>
-          </div>
-        </>
-      )}
-      {randomImage && (
-        <>
-          {disabled && <h2>Okayy bubu</h2>}
-          <img src={randomImage} alt="Random Image" />
-        </>
-      )}
+      <img src="https://i.pinimg.com/736x/44/e3/6d/44e36da9eb3789bb300bda0fd532b429.jpg" />
+      <h1>Thankyou for being my Valentine!</h1>
+      <h3 className="center-div">{`Let's go on a movie-cum(🌚)-dinner date`}</h3>
+      <div style={{ margin: '10px' }}>
+        <br /><br />
+        <h4>Also, please enter some wishlist/suggestions reminder you wanna deliver.{`PS: You can enter any gift you wish for. It's anonymous!😉`}</h4>
+        <form onSubmit={handleGiftSubmit}>
+          <input
+            type="text"
+            value={gift}
+            onChange={(e) => setGift(e.target.value)}
+            placeholder="Type..."
+            className="input"
+            required
+          />
+          <button type="submit">
+            Send
+          </button>
+        </form>
+      </div>
     </>
-  );
-};
+  )
+}
 
 export default Venue;

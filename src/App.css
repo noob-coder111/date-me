@@ -81,24 +81,25 @@ h3 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
-h3:hover {
-  color: rgb(23, 23, 229);
-  margin: 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  cursor: pointer;
-}
 
 button:active {
   color: red;
   border: 2px solid red;
 }
 
-.venues {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
 .container {
   text-align: center;
+}
+
+.input {
+  border: 2px solid rgb(238, 54, 134);
+  border-radius: 10px;
+  height: 40px;
+  width: 400px;
+}
+
+.center-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
